@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="shortcut icon" href="./logo.png">
+    <link rel="stylesheet" href="./login.css">
+</head>
+
+<body>
+    <div class="container">
+        <h2>登录到我们的小世界</h2>
+        <div class="form-input">
+            <input type="text" class="input" required autofocus>
+            <label>用户名</label>
+        </div>
+        <div class="form-input">
+            <input type="password" class="input" required>
+            <label>密码</label>
+        </div>
+        <a href="javascript:void(0)" onclick="submit()">
+            登录
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </a>
+    </div>
+
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+        function submit() {
+            username = document.getElementsByTagName('input')[0].value;
+            password = document.getElementsByTagName('input')[1].value;
+
+            $.getJSON("./user.json", function (data) {
+                console.log(data)
+                if(username === data.username && password === data.password){
+                    window.location.href='http://www.baidu.com';
+                }
+            });
+
+        }
+    </script>
+</body>
+
+</html>
